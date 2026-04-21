@@ -6,6 +6,15 @@
 
     <title>{% block title %}Sunu Cosaan, les visages du Sénégal{% endblock %}</title>
 
+    {# Favicon #}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset("favicon.ico") }}">
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset("apple-touch-icon.png") }}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset("favicon-32x32.png") }}>
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset("favicon-16x16.png") }}>
+    <link rel="manifest" href={{ asset("site.webmanifest") }}>
+    
+
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -15,14 +24,14 @@
     {% endblock %}
 </head>
 
-<body class="mbody">
+<body style="background-color: #F5EDE0" class="mbody">
  
     
     <nav class="navbar navbar-expand-lg bg-success shadow">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="{{path("app_visitor_welcome")}}">
-    <img src="{{ asset('images/logocosaanproto.png') }}" alt="" width="110">
+    <img src="{{ asset('images/sunucosaan2.png') }}" alt="" width="110">
                 </a>
 
 
@@ -40,19 +49,19 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{path("app_visitor_welcome")}}">Accueil</a>
+                        <a class="nav-link active text-white" aria-current="page" href="{{path("app_visitor_welcome")}}">Accueil</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path("app_visitor_welcome")}}">A propos de nous</a>
+                        <a class="nav-link text-white" href="{{path("app_visitor_welcome")}}">A propos de nous</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path("app_visitor_blog_index")}}">Blog</a>
+                        <a class="nav-link text-white" href="{{path("app_visitor_blog_index")}}">Blog</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path("app_visitor_suggestion_index")}}">Vos suggestions</a>
+                        <a class="nav-link text-white" href="{{path("app_visitor_suggestion_index")}}">Vos suggestions</a>
                     </li>
 
                 </ul>
@@ -60,11 +69,11 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Se connecter</a>
+                        <a class="nav-link text-white" href="#">Se connecter</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">S'inscrire</a>
+                        <a class="nav-link text-white" href="{{path("app_register")}}">S'inscrire</a>
                     </li>
 
                 </ul>
@@ -79,8 +88,8 @@
     </main>
 
     
-    <footer class="text-center">
-        Sénégal Rekk
+    <footer class="text-center bg-danger">
+       <p class='text-white'>Sénégal Rekk</p>
     </footer>
 
 </body>
