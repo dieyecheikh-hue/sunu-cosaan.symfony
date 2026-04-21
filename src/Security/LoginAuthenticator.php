@@ -28,6 +28,8 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
+        // dd('authenticate appelé', $request->getPayload()->all());
+
         $email = $request->getPayload()->getString('email');
 
         $request->getSession()->set(SecurityRequestAttributes::LAST_USERNAME, $email);
@@ -44,13 +46,13 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        // dd('connexion réussie !');
+
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-        // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        return new RedirectResponse($this->urlGenerator->generate('app_visitor_welcome'));
     }
 
     protected function getLoginUrl(Request $request): string
