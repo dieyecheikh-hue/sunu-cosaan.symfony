@@ -8,11 +8,9 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class SuggestionController extends AbstractController
 {
-    #[Route('/suggestion', name: 'app_visitor_suggestion_index')]
+    #[Route('/suggestion', name: 'app_visitor_suggestion_index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('pages/visitor/suggestion/index.html.twig', [
-            'controller_name' => 'SuggestionController',
-        ]);
+        return $this->render('pages/visitor/suggestion/index.html.twig');
     }
 }

@@ -1,0 +1,10 @@
+{% extends './themes/base_visitor.html.twig' %}
+
+{% block title %}Lien envoyé{% endblock %}
+
+{% block main %}
+    <p class="text-center my-3">
+       Un message vient de vous être envoyé sur l'adresse email correspondant à votre compte. Ce lien est valide pendant {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    </p>
+    <p class="text-center">Si vous n'avez pas reçu de message, veuillez vérifier vos spams ou <a href="{{ path('app_forgot_password_request') }}">rééssayer</a>.</p>
+{% endblock %}
