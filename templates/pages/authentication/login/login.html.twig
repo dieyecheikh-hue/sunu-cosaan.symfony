@@ -52,13 +52,20 @@
                 </div>
 
                 <div class="mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me">
-                        Se souvenir de moi
-                    </label>
+                  <div class="row">
+                      <div class="col-md-6">
+                         <label>
+                            <input type="checkbox" name="_remember_me">
+                            Se souvenir de moi
+                         </label>
+                      </div>
+
+                      <div class="col-md-6 my-1 text-md-end">
+                          <a href="{{path('app_forgot_password_request')}}">Mot de passe oublié ?</a>
+                      </div>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center my-1 mb-3">
                     <button class="btn btn-primary w-100 shadow" type="submit">
                         Se connecter
                     </button>
