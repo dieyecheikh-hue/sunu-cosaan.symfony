@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Sunu Cosaan, les visages du Sénégal{% endblock %}</title>
+
+    {# Favicon #}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset("favicon.ico") }}">
+    <link rel="apple-touch-icon" sizes="180x180" href={{ asset("apple-touch-icon.png") }}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ asset("favicon-32x32.png") }}>
+    <link rel="icon" type="image/png" sizes="16x16" href={{ asset("favicon-16x16.png") }}>
+    <link rel="manifest" href={{ asset("site.webmanifest") }}>
+    
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body style="background-color: #5d5c5b" class="mbody">
+ 
+    
+    <nav style="background-color: #d3d5cc" class="navbar navbar-expand-lg shadow">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="{{path("app_visitor_welcome")}}">
+    <img src="{{ asset('images/sunucosaan2.png') }}" alt="" width="110">
+                </a>
+
+
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{path('app_user_home')}}">Tableau de bord</a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" href="">Mon profil</a>
+                        </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('app_admin_home')}}">Espace admin</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('app_visitor_welcome')}}">Retour au site</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
+    
+   <main>
+   {% block main %} {% endblock %}
+   </main>
+ 
+    
+    <footer style="background-color: #d3d5cc" class="text-center">
+       <p>Sénégal Rekk</p>
+    </footer>
+
+</body>
+</html>
