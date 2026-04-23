@@ -27,7 +27,7 @@
 <body style="background-color: #F5EDE0" class="mbody">
  
     
-    <nav class="navbar navbar-expand-lg bg-success shadow">
+    <nav style="background-color: #045622" class="navbar navbar-expand-lg shadow">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="{{path("app_visitor_welcome")}}">
@@ -76,7 +76,21 @@
 
                 {% if app.user %}
 
-                <li class="nav-item">
+                {% if is_granted('ROLE_ADMIN') %}
+                   <li class="nav-item">
+                        <a class="nav-link text-white" href="{{path("app_admin_home")}}">Espace admin</a>
+                    </li> 
+                {% endif %}
+
+                {% if is_granted('ROLE_USER') %}
+                   <li class="nav-item">
+                        <a class="nav-link text-white" href="{{path("app_user_home")}}">Espace privé</a>
+                    </li> 
+                {% endif %}
+                
+                
+
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="{{path("app_logout")}}">Déconnexion</a>
                     </li> 
 
@@ -103,7 +117,7 @@
    </main>
  
     
-    <footer class="text-center bg-danger">
+    <footer style="background-color: #a70a08" class="text-center ">
        <p class='text-white'>Sénégal Rekk</p>
     </footer>
 
