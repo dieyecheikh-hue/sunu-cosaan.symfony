@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="Cheikh">
+    <meta name="publisher" content="Cheikh">
     <meta name="generator" content="Astro v5.13.2">
 
     <title>Espace Admin</title>
@@ -17,6 +18,17 @@
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
+
+
+	{% block j_query %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	{% endblock %}
+
+	{% block datatables %}
+		<link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.3.7/datatables.min.css" rel="stylesheet" integrity="sha384-TaPZIHS40hwajVHHLxaVNexgxbNrJTIRl7BUl34LA1SFjtWIrsAJkw5e73Pb2wQ+" crossorigin="anonymous">
+ 
+		<script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.3.7/datatables.min.js" integrity="sha384-vt7Se62YlbFnFq+6GomzrzmNsmoyYSLuZlXUULIBkHoL6at7yZfsATRmsQ3MtuJP" crossorigin="anonymous"></script>
+	{% endblock %}
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
 
@@ -136,7 +148,7 @@
 
 		<div style="background-color: #F5EDE0" class="container-fluid">
 			<div class="row">
-				<div  class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+				<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
 					<div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
 						<div class="offcanvas-header">
 							<h5 class="offcanvas-title" id="sidebarMenuLabel"></h5>
@@ -150,7 +162,7 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
+									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('app_admin_category_index')}}">
 										<i class="fa-solid fa-folder"></i>
 										Catégories
 									</a>
@@ -160,13 +172,6 @@
 										<i class="fa-solid fa-feather"></i>
 										Articles
 									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
-										<i class="fa-solid fa-hashtag"></i>
-										Tags
-									</a>
-								</li>
 								<li class="nav-item">
 									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
 										<i class="fa-solid fa-address-book"></i>
@@ -179,11 +184,6 @@
 										Utilisateurs
 									</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
-										<i class="fa-solid fa-comments"></i>
-										Commentaires
-									</a>
 								</li>
 							</ul>
 

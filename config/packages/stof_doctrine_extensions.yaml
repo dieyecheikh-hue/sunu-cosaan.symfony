@@ -1,0 +1,8 @@
+# app/config/config.yml
+# (or config/packages/stof_doctrine_extensions.yaml)
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            sluggable: true
+            
