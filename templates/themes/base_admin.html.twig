@@ -19,6 +19,15 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 
+	{% block tiny_mce %}
+  <script src="https://cdn.tiny.cloud/1/jl1oetjpqfhndncgus5yz1c9k4xy8rvkwrnmj8j6vjrp6007/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea#'
+  });
+</script>
+{% endblock %}
+
 
 	{% block j_query %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -168,14 +177,15 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
+									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('app_admin_post_index')}}">
 										<i class="fa-solid fa-feather"></i>
 										Articles
 									</a>
+							     </li>
 								<li class="nav-item">
 									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
-										<i class="fa-solid fa-address-book"></i>
-										Contacts
+										<i class="fa-regular fa-lightbulb"></i>
+										Suggestions
 									</a>
 								</li>
 								<li class="nav-item">

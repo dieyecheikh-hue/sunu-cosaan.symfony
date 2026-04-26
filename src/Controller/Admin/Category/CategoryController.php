@@ -73,7 +73,7 @@ final class CategoryController extends AbstractController
     {
         if (!$this->isCsrfTokenValid(
             'category-'.$category->getId(),
-            $request->request->get('csrf_token')
+            $request->request->get('_token')
         )) {
             $entityManager->remove($category);
         }
