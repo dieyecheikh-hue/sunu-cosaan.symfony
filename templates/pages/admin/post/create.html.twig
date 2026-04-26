@@ -1,0 +1,72 @@
+{% extends './themes/base_admin.html.twig' %}
+
+{% block title %} Nouvel article {% endblock %}
+
+{% block description %} Ajoutez de nouvelles catégories {% endblock %}
+
+{% block main %} 
+<h1 class="text-center my-1 display-5">Nouvel article </h1>
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .vich-image img {
+            max-width: 150px !important;
+            height: auto !important;
+        }
+    </style>
+{% endblock %}
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-10 col-lg-7 mx-auto">
+  {{ form_start(postForm, {'attr': {'enctype': 'multipart/form-data'}}) }}
+  {{ form_errors(postForm) }}
+  <div class="mb-3">
+    <label for="post_form_title">Titre</label>
+     <div class="text-danger">{{ form_errors(postForm.title) }}</div>
+        {{ form_widget(postForm.title, {'attr': {'class':'form-control', 'autofocus':'autofocus'}}) }}
+    </div>
+
+    <div class="mb-3">
+    <label for="post_form_category">Catégorie</label>
+    <div class="text-danger">{{ form_errors(postForm.category) }}</div>
+        {{ form_widget(postForm.category, {'attr': {'class':'form-control', 'autofocus':'autofocus'}}) }}
+    </div>
+
+    <div class="mb-3">
+    <label for="post_form_description,">Description</label>
+    <div class="text-danger">{{ form_errors(postForm.description) }}</div>
+        {{ form_widget(postForm.description, {'attr': {'class':'form-control', 'autofocus':'autofocus'}}) }}
+    </div>
+
+    <div class="mb-3">
+    <label for="post_form_image,">Image</label>
+    <div class="text-danger">{{ form_errors(postForm.imageFile) }}</div>
+        {{ form_widget(postForm.imageFile, {'attr': {'class':'form-control', 'autofocus':'autofocus'}}) }}
+    </div>
+
+    <div class="mb-3">
+    <label for="post_form_image">Contenu</label>
+    <div class="text-danger">{{ form_errors(postForm.content) }}</div>
+        {{ form_widget(postForm.content, {'attr': {'class':'form-control', 'autofocus':'autofocus'}}) }}
+    </div>
+    <div class="text-center my-3">
+       <input style="background-color: #a70a08" formnovalidate type="submit" class="btn btn-primary shadow" value="Sauvegarder">
+    </div>
+
+  {{ form_end(postForm, {'render_rest': false}) }}
+  {% block tiny_mce %}
+  <script src="https://cdn.tiny.cloud/1/jl1oetjpqfhndncgus5yz1c9k4xy8rvkwrnmj8j6vjrp6007/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea#post_form_content'
+  });
+</script>
+{% endblock %}
+  </div>
+  </div>
+</div>
+
+ {% endblock %}
