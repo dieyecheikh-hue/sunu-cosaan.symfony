@@ -5,6 +5,65 @@
 {% block description %} Tableau de bord {% endblock %}
 
 {% block main %} 
-   <h1 class ="text-center my-3 display-5 text-white">Hello User</h1>
- {% endblock %}
 
+<div style="background-color: #811412" class="text-white py-4 text-center mb-4">
+    <h1 class="display-5" style="font-family: Georgia, serif;">
+        Bienvenue, {{ app.user.firstName }} !
+    </h1>
+</div>
+
+<div class="container">
+
+    {# Message de bienvenue #}
+    <div class="card shadow p-4 mb-4" style="background-color: #f0e6d3;">
+        <h3 class="text-center my-3" style="font-family: Georgia, serif; color: #045622;">
+            Bienvenue dans la famille Sunu Cosaan !
+        </h3>
+        <div class="fs-5">
+            <p>Cher(e) membre, nous sommes profondément touchés par votre décision de rejoindre la communauté <strong>Sunu Cosaan</strong> et nous vous en remercions chaleureusement. Votre inscription est bien plus qu'un simple geste — c'est un acte d'amour pour la culture sénégalaise et un témoignage de votre attachement à la préservation de notre héritage commun.</p>
+
+            <p>En tant que membre, vous avez désormais accès à l'ensemble de nos articles rédigés avec passion. Vous pouvez également nous faire part de vos suggestions pour les prochains articles — vos idées sont notre plus grande source d'inspiration.</p>
+
+            <p>Ensemble, dans l'esprit de la <em>téranga</em>, construisons un espace de savoir, de partage et de fierté culturelle. Bienvenue chez vous. <span class="fi fi-sn"></span></p>
+        </div>
+    </div>
+
+    {# Articles publiés #}
+    <h2 class="text-center my-4" style="font-family: Georgia, serif; color: #045622;">
+        Nos derniers articles
+    </h2>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            {% for post in posts %}
+            <div class="card shadow p-4 mb-4 text-center">
+                {% if post.image %}
+                    <div class="d-flex justify-content-center mb-3">
+                        <img class="img-fluid" style="max-height: 150px; object-fit: cover;" 
+                             src="{{ vich_uploader_asset(post, 'imageFile') }}" 
+                             alt="{{ post.title }}">
+                    </div>
+                {% endif %}
+
+                <h3>{{ post.title }}</h3>
+                <p class="text-muted">{{ post.category.name }}</p>
+                <p>{{ post.description }}</p>
+
+                <div>
+                    <a class="btn text-white" style="background-color: #a70a08" 
+                       href="{{ path('app_user_show_show', {'slug': post.slug}) }}">
+                        Lire l'article
+                    </a>
+                </div>
+            </div>
+            {% else %}
+                <p class="text-center">Aucun article publié pour le moment.</p>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

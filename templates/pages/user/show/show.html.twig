@@ -1,6 +1,6 @@
-{% extends './themes/base_admin.html.twig' %}
+{% extends './themes/base_visitor.html.twig' %}
 
-{% block title %} Article #{{ post.id }} : {{ post.title }} {% endblock %}
+{% block title %} {{ post.title }} - Sunu Cosaan {% endblock %}
 
 {% block description %} {{ post.description }} {% endblock %}
 
@@ -8,7 +8,7 @@
 
 <div style="background-color: #811412" class="text-white py-4 text-center mb-4">
     <h1 class="display-5" style="font-family: Georgia, serif;">{{ post.title }}</h1>
-    <p class="text-white">{{ post.category.name }} — {{ post.createdAt|format_date }}</p>
+    <p class="text-white">{{ post.category.name }} </p>
 </div>
 
 <div class="container">
@@ -20,7 +20,7 @@
                 <img src="{{ vich_uploader_asset(post, 'imageFile') }}" 
                      alt="{{ post.title }}" 
                      class="img-fluid"
-                     style="max-width: 300px; height: auto; object-fit: cover;">
+                     style="max-width: 400px; height: auto; object-fit: cover;">
             </div>
             {% endif %}
 
@@ -28,12 +28,9 @@
                 {{ post.content|raw }}
             </div>
 
-            <div class="text-center mt-4">
-                <a href="{{ path('app_admin_post_index') }}" style="background-color: #a70a08" class="btn text-white px-4">
-                    Retour aux articles
-                </a>
-                <a href="{{ path('app_admin_post_edit', {'id': post.id}) }}" style="background-color: #40a708" class="btn text-white px-4">
-                    Modifier
+            <div class="text-center my-4">
+                <a href="{{ path('app_visitor_blog_index') }}" style="background-color: #a70a08" class="btn text-white px-4">
+                     Retour au blog
                 </a>
             </div>
 

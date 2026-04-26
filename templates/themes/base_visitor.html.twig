@@ -8,12 +8,19 @@
 
     {# Favicon #}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset("favicon.ico") }}">
-    <link rel="apple-touch-icon" sizes="180x180" href={{ asset("apple-touch-icon.png") }}>
-    <link rel="icon" type="image/png" sizes="32x32" href={{ asset("favicon-32x32.png") }}>
-    <link rel="icon" type="image/png" sizes="16x16" href={{ asset("favicon-16x16.png") }}>
-    <link rel="manifest" href={{ asset("site.webmanifest") }}>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    {% block flag_icons %}
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
+        />
     
+{% endblock %}
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -31,24 +38,12 @@
         <div class="container-fluid">
 
             <a class="navbar-brand" href="{{path("app_visitor_welcome")}}">
-    <img src="{{ asset('images/sunucosaan2.png') }}" alt="" width="110">
-                </a>
-
-
-
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-
+    <img src="{{ asset('images/cosaan2etoiles.png') }}" alt="" width="110"></a>
+            <button  class="bg-white navbar-toggler"type="button"data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
-
                 <ul class="navbar-nav">
-
-                        
 
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="{{path("app_visitor_welcome")}}">Accueil</a>
@@ -64,7 +59,7 @@
 
                     {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_visitor_suggestion_index') }}">
+                        <a class="nav-link text-white" href="{{ path('app_user_suggestion_index') }}">
                         Vos suggestions
                         </a>
                     </li>
@@ -74,7 +69,6 @@
 
                 <ul class="navbar-nav ms-auto">
 
-                {% if app.user %}
 
                 {% if is_granted('ROLE_ADMIN') %}
                    <li class="nav-item">
@@ -89,22 +83,23 @@
                 {% endif %}
                 
                 
-
+                   {% if app.user %}
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{path("app_logout")}}">Déconnexion</a>
-                    </li> 
-
-                {% else %}
+                    </li
+                   {% else %}
+                    
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{path("app_login")}}">Se connecter</a>
                     </li>
+                    {% endif %}
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{path("app_register")}}">S'inscrire</a>
                     </li>
 
-                {% endif %}
+               
    
                 </ul>
             </div>
@@ -117,8 +112,8 @@
    </main>
  
     
-    <footer style="background-color: #a70a08" class="text-center ">
-       <p class='text-white'>Sénégal Rekk</p>
+    <footer style="background-color: #811412" class="text-center ">
+       <p class='text-white'>Sénégal Rekk <span class="fi fi-sn"></span></p>
     </footer>
 
 </body>

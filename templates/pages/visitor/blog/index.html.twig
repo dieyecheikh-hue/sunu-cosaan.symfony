@@ -7,5 +7,68 @@
 {% block keywords %} Sénégal, visages, ethnie, origines {% endblock %}
 
 {% block main %} 
- <h1 class="text-center my-3 display-5"> Découvrez notre blog !</h1>
+
+<div style="background-color: #045622;" class="text-white py-4 text-center mb-4">
+    <h1 class="display-5" style="font-family: Georgia, serif;">Découvrez notre blog !</h1> 
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+
+<div class="shadow p-4 mb-4" style="background-color: #f0e6d3;">
+        <h3 class="text-center my-3" style="font-family: Georgia, serif; color: #045622;">
+            C'est à vous !
+        </h3>
+        <div class="fs-5">
+            <p>Sur ce blog, nous vous invitons à découvrir la richesse et la diversité des ethnies du Sénégal.
+                    Chaque article met en lumière l'histoire, les traditions et les modes de vie propres à chaque communauté.
+                    Des Wolofs aux Diolas, en passant par les Sérères et bien d'autres, chaque peuple porte un héritage unique.
+                    À travers ces contenus, nous valorisons les cultures, les langues et les savoirs transmis de génération en génération.
+                    Notre objectif est de préserver la mémoire culturelle et de faire connaître les visages authentiques du Sénégal.
+                    Plongez dans ces récits pour mieux comprendre l'âme et la diversité de notre patrimoine.Sur ce blog, nous vous invitons à découvrir la richesse et la diversité des ethnies du Sénégal.
+                    Chaque article met en lumière l'histoire, les traditions et les modes de vie propres à chaque communauté.
+                    Des Wolofs aux Diolas, en passant par les Sérères et bien d'autres, chaque peuple porte un héritage unique.
+                    À travers ces contenus, nous valorisons les cultures, les langues et les savoirs transmis de génération en génération.
+                    Notre objectif est de préserver la mémoire culturelle et de faire connaître les visages authentiques du Sénégal.
+                    Plongez dans ces récits pour mieux comprendre l'âme et la diversité de notre patrimoine. </p> 
+        </div>
+    </div>
+                        <div class="text-center mt-3">
+                                        <div class="shadow p-4 mb-4" style="background-color: #f0e6d3;">
+                                            <h3 class="text-center my-3" style="font-family: Georgia, serif; color: #045622;">
+                                                <a href="{{ path('app_register') }}" style="background-color: #a70a08" class="btn text-white px-4"> Inscrivez-vous pour découvrir ces magnifiques histoires !</a>
+                                            </h3>
+                                    </div>
+                                </div>
+
+            <div class="card shadow p-4 mb-4 text-center">
+                <div class="d-flex justify-content-center mb-3">
+                    <img class="img-fluid" style="max-height: 150px; object-fit: cover;" src="{{ asset('images/logodiola.png') }}" alt="">
+                </div>
+                <h2>Découvrez les Diolas !</h2>
+
+                
+            </div>
+
+            <div class="card shadow p-4 mb-4 text-center">
+                <div class="d-flex justify-content-center mb-3">
+                    <img class="img-fluid" style="max-height: 150px; object-fit: cover;" src="{{ asset('images/cosaan2etoiles.png') }}" alt="">
+                </div>
+                <h2>Découvrez les Wolofs !</h2>
+            </div>
+
+            <div class="card shadow p-4 mb-4 text-center">
+                <div class="d-flex justify-content-center mb-3">
+                    <img class="img-fluid" style="max-height: 150px; object-fit: cover;" src="{{ asset('images/logodiola.png') }}" alt="">
+                </div>
+                <h2>Découvrez les Sérères !</h2>
+                
+            </div>
+
+            
+    </div>
+</div>
+
 {% endblock %}

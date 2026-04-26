@@ -11,11 +11,11 @@
     <meta name="publisher" content="Sénégal rekk">
     <meta name="theme-color" content="#e81515da">
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -27,7 +27,9 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="col-lg-6 py-4">
 
-            <h1 class="text-center mb-4">S'inscrire</h1>
+            <div style="background-color: #811412" class="text-white py-4 text-center mb-4">
+               <h1 class="display-5" style="font-family: Georgia, serif;">Inscription</h1>   
+           </div>
 
             {% for flash_error in app.flashes('verify_email_error') %}
                 <div class="alert alert-danger text-center" role="alert">{{ flash_error }}</div>
