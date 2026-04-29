@@ -1,0 +1,215 @@
+# Query: $entityManager
+# ContextLines: 1
+
+59 results - 13 files
+
+src\Controller\ContactController.php:
+  17      #[Route('/contact', name: 'app_contact')]
+  18:     public function index(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+  19      {
+
+  25              $contact->setCreatedAt(new \DateTimeImmutable());
+  26:             $entityManager->persist($contact);
+  27:             $entityManager->flush();
+  28  
+  29:             $email = (new Email())
+  30                  ->from($contact->getEmail())
+
+  39  
+  40:             $mailer->send($entityManagerail);
+  41  
+
+src\Controller\Admin\Category\CategoryController.php:
+  25      #[Route('/create', name: 'app_admin_category_create', methods: ['GET', 'POST'])]
+  26:     public function create(Request $request, EntityManagerInterface $entityManager): Response
+  27      {
+
+  36  
+  37:             $entityManager->persist($category);
+  38:             $entityManager->flush();
+  39  
+
+  50      #[Route('category/{id<\d+>}/edit', name: 'app_admin_category_edit', methods: ['GET', 'POST'])]
+  51:     public function edit(Category $category, Request $request, EntityManagerInterface $entityManager): Response
+  52      {
+
+  58  
+  59:             $entityManager->flush();
+  60  
+
+  71      #[Route('/category/{id<\d+>}/delete', name: 'app_admin_category_delete', methods: ['POST'])]
+  72:     public function delete(Category $category, Request $request, EntityManagerInterface $entityManager): Response
+  73      {
+
+  77          )) {
+  78:             $entityManager->remove($category);
+  79          }
+  80:         $entityManager->flush();
+  81  
+
+src\Controller\Admin\Post\PostController.php:
+   32      #[Route('/post/create', name: 'app_admin_post_create', methods: ['GET', 'POST'])]
+   33:     public function create(Request $request, EntityManagerInterface $entityManager): Response
+   34      {
+
+   48  
+   49:             $entityManager->persist($post);
+   50:             $entityManager->flush();
+   51  
+
+   70      #[Route('/post/{id<\d+>}/edit', name: 'app_admin_post_edit', methods: ['GET', 'POST'])]
+   71:     public function edit(Post $post, EntityManagerInterface $entityManager, Request $request): Response
+   72      {
+
+   79  
+   80:             $entityManager->flush();
+   81  
+
+   92      #[Route('/post/{id<\d+>}/delete', name: 'app_admin_post_delete', methods: ['POST'])]
+   93:     public function delete(Post $post, Request $request, EntityManagerInterface $entityManager): Response
+   94      {
+   95          if ($this->isCsrfTokenValid("delete-post-{$post->getId()}", $request->request->get('csrf_token'))) {
+   96:             $entityManager->remove($post);
+   97:             $entityManager->flush();
+   98              $this->addFlash('success', "L'article a été supprimé avec succès.");
+
+  104      #[Route('/post/{id<\d+>}/publish', name: 'app_admin_post_publish', methods: ['POST'])]
+  105:     public function publish(Post $post, EntityManagerInterface $entityManager): Response
+  106      {
+
+  116  
+  117:         $entityManager->flush();
+  118  
+
+src\Controller\Admin\Profile\ProfileController.php:
+  17      #[Route('/profile', name: 'app_admin_profile', methods: ['GET', 'POST'])]
+  18:     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+  19      {
+
+  32  
+  33:             $entityManager->flush();
+  34              $this->addFlash('success', 'Profil mis à jour avec succès !');
+
+src\Controller\Admin\Settings\SettingsController.php:
+  16      #[Route('/settings', name: 'app_admin_settings', methods: ['GET', 'POST'])]
+  17:     public function index(SettingRepository $settingRepository, EntityManagerInterface $entityManager, Request $request): Response
+  18      {
+
+  33                      $setting->setValue($value);
+  34:                     $entityManager->persist($setting);
+  35                  }
+
+  37  
+  38:             $entityManager->flush();
+  39              $this->addFlash('success', 'Paramètres mis à jour !');
+
+src\Controller\Authentication\Registration\RegistrationController.php:
+  21  {
+  22:     public function __construct(private EmailVerifier $emailVerifier)
+  23      {
+
+  26      #[Route('/inscription', name: 'app_register')]
+  27:     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+  28      {
+
+  39  
+  40:             $entityManager->persist($user);
+  41:             $entityManager->flush();
+  42  
+
+src\Controller\Authentication\ResetPassword\ResetPasswordController.php:
+   29          private ResetPasswordHelperInterface $resetPasswordHelper,
+   30:         private EntityManagerInterface $entityManager,
+   31      ) {
+
+   43          if ($form->isSubmitted() && $form->isValid()) {
+   44:             /** @var string $email */
+   45:             $emrail = $form->get('email')->getData();
+   46  
+   47:             return $this->processSendingPasswordResetEmail($email, $mailer, $translator
+   48              );
+
+  130  
+  131:     private function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer, TranslatorInterface $translator): RedirectResponse
+  132      {
+  133          $user = $this->entityManager->getRepository(User::class)->findOneBy([
+  134:             'email' => $emailFormData,
+  135          ]);
+
+  157  
+  158:         $email = (new TemplatedEmail())
+  159              ->from(new Address('cybertarantula9@gmail.com', 'Cheikh'))
+
+  167  
+  168:         $mailer->send($email);
+  169  
+
+src\Controller\User\UserProfileController.php:
+  17      #[Route('/profile', name: 'app_user_profile', methods: ['GET', 'POST'])]
+  18:     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
+  19      {
+
+  32  
+  33:             $entityManager->flush();
+  34              $this->addFlash('success', 'Profil mis à jour avec succès !');
+
+src\Controller\Visitor\Blog\BlogController.php:
+  26      #[Route('/blog/{slug}', name: 'app_visitor_blog_show', methods: ['GET', 'POST'])]
+  27:     public function show(string $slug, PostRepository $postRepository, Request $request, EntityManagerInterface $entityManager): Response
+  28      {
+
+  45                  $comment->setCreatedAt(new \DateTimeImmutable());
+  46:                 $entityManager->persist($comment);
+  47:                 $entityManager->flush();
+  48                  $this->addFlash('success', 'Commentaire ajouté !');
+
+src\Entity\Contact.php:
+  23      #[ORM\Column(length: 255, unique: true)]
+  24:     private ?string $email = null;
+  25  
+
+  65  
+  66:     public function setEmail(string $email): static
+  67      {
+  68:         $this->email = $email;
+  69  
+
+src\Entity\User.php:
+   32      #[ORM\Column(length: 180)]
+   33:     private ?string $email = null;
+   34  
+
+  106  
+  107:     public function setEmail(string $email): static
+  108      {
+  109:         $this->email = $email;
+  110  
+
+src\Security\EmailVerifier.php:
+  17          private MailerInterface $mailer,
+  18:         private EntityManagerInterface $entityManager,
+  19      ) {
+
+  21  
+  22:     public function sendEmailConfirmation(string $verifyEmailRouteName, User $user, TemplatedEmail $email): void
+  23      {
+
+  30  
+  31:         $context = $email->getContext();
+  32          $context['signedUrl'] = $signatureComponents->getSignedUrl();
+
+  35  
+  36:         $email->context($context);
+  37  
+  38:         $this->mailer->send($email);
+  39      }
+
+src\Security\LoginAuthenticator.php:
+  32  
+  33:         $email = $request->getPayload()->getString('email');
+  34  
+  35:         $request->getSession()->set(SecurityRequestAttributes::LAST_USERNAME, $email);
+  36  
+  37          return new Passport(
+  38:             new UserBadge($email),
+  39              new PasswordCredentials($request->getPayload()->getString('password')),

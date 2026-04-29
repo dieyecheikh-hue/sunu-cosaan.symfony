@@ -15,11 +15,13 @@
     <link rel="manifest" href="/images/site.webmanifest">
 
     {% block flag_icons %}
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
-        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"/>
     {% endblock %}
+
+{% block aos %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+{% endblock %}
+    
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}

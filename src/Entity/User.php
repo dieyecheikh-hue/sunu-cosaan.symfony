@@ -278,7 +278,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, CommentType>
+     * @return Collection<int, Comment>
      */
     public function getComments(): Collection
     {

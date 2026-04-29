@@ -1,0 +1,40 @@
+{% extends './themes/base_admin.html.twig' %}
+
+{% block title %}Paramètres{% endblock %}
+
+{% block main %}
+<div style="background-color: #811412" class="text-white py-4 text-center">
+    <h1 class="display-5" style="font-family: Georgia, serif;">Paramètres</h1>
+</div>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success text-center">{{ message }}</div>
+            {% endfor %}
+
+            <form method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token('settings') }}">
+
+                <div class="mb-3">
+                    <label>Titre du site</label>
+                    <input type="text" name="site_title" class="form-control"
+                           value="{{ settings['site_title'] is defined ? settings['site_title'].value : 'Sunu Cosaan' }}">
+                </div>
+
+                <div class="mb-3">
+                    <label>Description du site</label>
+                    <textarea name="site_description" class="form-control" rows="3">{{ settings['site_description'] is defined ? settings['site_description'].value : '' }}</textarea>
+                </div>
+
+                <button type="submit" class="btn text-white w-100" style="background-color: #811412">
+                    Enregistrer
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
