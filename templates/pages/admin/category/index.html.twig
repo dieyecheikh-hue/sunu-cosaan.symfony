@@ -38,7 +38,7 @@
 {% include 'components/_alert.html.twig' %}
 
 <div class="d-flex justify-content-center align-items-center my-5"> 
-    <a href="{{path('app_admin_category_create')}}" style="background-color: #a70a08" class="btn text-white"><i class="fa-solid fa-circle-plus"></i> Nouvelle catégorie</a>
+    <a href="{{path('app_admin_category_create')}}" style="background-color: #811412" class="btn text-white"><i class="fa-solid fa-circle-plus"></i> Nouvelle catégorie</a>
 </div>
 
 <div class="table-responsive">
@@ -64,12 +64,12 @@
         <td>{{category.createdAt|format_date}}</td>
         <td>{{category.updatedAt|format_date}}</td>
         <td>
-       <a style="background-color: #61d012"  class=" btn text-white" href="{{ path('app_admin_category_edit', {'id': category.id}) }}">Modifier</a>
+       <a style="background-color: #045622"  class=" btn text-white mb-3" href="{{ path('app_admin_category_edit', {'id': category.id}) }}">Modifier</a>
        <input type="hidden" name="csrf_token" value"{{csrf_token('category-', '~category.id')}}">
 
        <form action="{{path('app_admin_category_delete', {'id':category.id})}}" method="post">
                                 <input type="hidden" name="csrf_token" value="{{csrf_token('delete-category-'~category.id)}}">
-                                <input type="submit" class="btn btn-sm btn-danger" value="Supprimer" onclick="return confirm('Confirmer ma suppression de cette catégorie?')">
+                                <input style="background-color: #811412" type="submit" class="btn btn-sm btn-danger" value="Supprimer" onclick="return confirm('Confirmer ma suppression de cette catégorie?')">
                             </form>
 
         </td>

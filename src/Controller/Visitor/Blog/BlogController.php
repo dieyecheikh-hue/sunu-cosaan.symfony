@@ -24,7 +24,7 @@ final class BlogController extends AbstractController
     }
 
     #[Route('/blog/{slug}', name: 'app_visitor_blog_show', methods: ['GET', 'POST'])]
-    public function show(string $slug, PostRepository $postRepository, Request $request, EntityManagerInterface $em): Response
+    public function show(string $slug, PostRepository $postRepository, Request $request, EntityManagerInterface $entityManager): Response
     {
         $post = $postRepository->findOneBy(['slug' => $slug, 'isPublished' => true]);
 
@@ -43,8 +43,8 @@ final class BlogController extends AbstractController
                 $comment->setPost($post);
                 $comment->setUser($this->getUser());
                 $comment->setCreatedAt(new \DateTimeImmutable());
-                $em->persist($comment);
-                $em->flush();
+                $entityManager->persist($comment);
+                $entityManager->flush();
                 $this->addFlash('success', 'Commentaire ajouté !');
 
                 return $this->redirectToRoute('app_visitor_blog_show', ['slug' => $post->getSlug()]);

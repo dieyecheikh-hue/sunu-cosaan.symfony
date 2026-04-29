@@ -15,7 +15,7 @@
 <div class="container">
 
    
-    <div class="card shadow p-4 mb-4" style="background-color: #f0e6d3;">
+    <div class="card shadow p-4 mb-3" style="background-color: #f0e6d3;">
         <h3 class="text-center my-3" style="font-family: Georgia, serif; color: #045622;">
             Bienvenue dans la famille Sunu Cosaan !
         </h3>
@@ -25,6 +25,11 @@
             <p>En tant que membre, vous avez désormais accès à l'ensemble de nos articles rédigés avec passion. Vous pouvez également nous faire part de vos suggestions pour les prochains articles — vos idées sont notre plus grande source d'inspiration.</p>
 
             <p>Ensemble, dans l'esprit de la <em>téranga</em>, construisons un espace de savoir, de partage et de fierté culturelle. Bienvenue chez vous. <span class="fi fi-sn"></span></p>
+
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid w-50" src="{{ asset('images/sunucosaan2.png') }}" alt="">
+            </div>
+
         </div>
     </div>
 
@@ -37,7 +42,7 @@
         <div class="col-lg-8">
 
             {% for post in posts %}
-            <div class="card shadow p-4 mb-4 text-center">
+            <div class="card shadow p-4 mb-4 text-center data-aos="flip-left">
                 {% if post.image %}
                     <div class="d-flex justify-content-center mb-3">
                         <img class="img-fluid" style="max-height: 150px; object-fit: cover;" 

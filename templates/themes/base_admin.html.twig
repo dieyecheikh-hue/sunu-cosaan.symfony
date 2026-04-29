@@ -29,11 +29,11 @@
 {% endblock %}
 
 {% block flag_icons %}
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
-        />
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
+{% endblock %}
+
+{% block aos %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 {% endblock %}
 
 
@@ -222,7 +222,7 @@
                                 </a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
+									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{ path('app_admin_settings') }}">
 										<i class="fa-solid fa-gear"></i>
 										Paramètres
 									</a>
