@@ -15,12 +15,9 @@
     <link rel="manifest" href="/images/site.webmanifest">
 
     {% block flag_icons %}
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
-        />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
     
-{% endblock %}
+    {% endblock %}
 
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -57,13 +54,11 @@
                         <a class="nav-link text-white" href="{{path("app_visitor_blog_index")}}">Blog</a>
                     </li>
 
-                    {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_user_suggestion_index') }}">
-                        Vos suggestions
+                        <a class="nav-link text-white" href="{{ path('app_contact') }}">
+                        Contact
                         </a>
                     </li>
-                    {% endif %}
                     
                 </ul>
 
@@ -86,7 +81,7 @@
                    {% if app.user %}
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{path("app_logout")}}">Déconnexion</a>
-                    </li
+                    </li>
                    {% else %}
                     
 

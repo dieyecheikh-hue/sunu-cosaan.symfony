@@ -1,0 +1,36 @@
+{% extends './themes/base_admin.html.twig' %}
+
+{% block title %}Message de {{ contact.firstName }} {{ contact.lastName }}{% endblock %}
+
+{% block main %}
+<div style="background-color: #811412" class="text-white py-4 text-center">
+    <h1 class="display-5" style="font-family: Georgia, serif;">Message de {{ contact.firstName }}</h1>
+    <p class="mb-0">Reçu le {{ contact.createdAt ? contact.createdAt|date('d/m/Y à H:i') : '-' }}</p>
+</div>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+
+            <div class="card shadow-sm mb-4">
+                <div style="background-color: #d9cab2">
+                    <h5  class="mb-0 text-center"><i class="fa-solid fa-user my-2 me-2"></i>Informations</h5>
+                </div>
+                <div class="text-center card-body">
+                    <p><strong>Prénom :</strong> {{ contact.firstName }}</p>
+                    <p><strong>Nom :</strong> {{ contact.lastName }}</p>
+                    <p class="mb-0"><strong>Email :</strong> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                </div>
+            </div>
+
+            <div class="text-center card shadow-sm mb-4">
+                <div class="card-header" style="background-color: #d9cab2">
+                    <h5 class="mb-0"><i class="fa-solid fa-envelope me-2"></i>Message</h5>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5">{{ contact.message }}</p>
+
+ </div>
+    </div>
+</div>
+{% endblock %}                    
