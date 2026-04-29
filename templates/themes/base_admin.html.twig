@@ -37,7 +37,6 @@
 {% endblock %}
 
 
-
 	{% block j_query %}
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	{% endblock %}
@@ -191,13 +190,21 @@
 									</a>
 							     </li>
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
-										<i class="fa-regular fa-lightbulb"></i>
-										Suggestions
+									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('app_admin_contacts')}}">
+										  <i class="fa-solid fa-envelope"></i>
+										Messages
 									</a>
 								</li>
+                                  <li>
+                                   <a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{ path('app_admin_comments') }}">
+                                    <i class="fa-solid fa-comments"></i>
+                                    Commentaires
+                                   </a>  
+                                </li>
+
+
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
+									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('app_admin_userlist')}}">
 										<i class="fa-solid fa-users"></i>
 										Utilisateurs
 									</a>
@@ -209,10 +216,10 @@
 
 							<ul class="nav flex-column mb-auto">
 								<li class="nav-item">
-									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">
-										<i class="fa-solid fa-user"></i>
-										Mon profil
-									</a>
+								<a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{ path('app_admin_profile') }}">
+                                    <i class="fa-solid fa-user"></i>
+                                    Mon profil
+                                </a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link d-flex align-items-center gap-2 text-dark" href="">

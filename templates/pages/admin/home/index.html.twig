@@ -2,12 +2,52 @@
 
 {% block title %} Tableau de bord {% endblock %}
 
-{% block description %} Tableau de bord {% endblock %}
-
-{% block main %} 
+{% block main %}
 
 <div style="background-color: #811412" class="text-white py-4 text-center mb-4">
     <h1 class="display-5" style="font-family: Georgia, serif;">Tableau de bord</h1>
 </div>
 
- {% endblock %}
+<div class="container my-4">
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="card text-center shadow p-3" style="border-top: 4px solid #811412">
+                <i class="fa-solid fa-feather fa-2x mb-2" style="color: #811412"></i>
+                <h2>{{ totalPosts }}</h2>
+                <p class="">Articles publiés</p>
+                <a href="{{ path('app_admin_post_index') }}" class="btn btn-sm text-white mt-2" style="background-color: #811412">Voir</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow p-3" style="border-top: 4px solid #811412">
+                <i class="fa-solid fa-users fa-2x mb-2" style="color: #811412"></i>
+                <h2>{{ totalUsers }}</h2>
+                <p class="">Utilisateurs</p>
+                <a href="{{ path('app_admin_userlist') }}" class="btn btn-sm text-white mt-2" style="background-color: #811412">Voir</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow p-3" style="border-top: 4px solid #811412">
+                <i class="fa-solid fa-comments fa-2x mb-2" style="color: #811412"></i>
+                <h2>{{ totalComments }}</h2>
+                <p class="">Commentaires</p>
+                <a href="{{ path('app_admin_comments') }}" class="btn btn-sm text-white mt-2" style="background-color: #811412">Voir</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center shadow p-3" style="border-top: 4px solid #811412">
+                <i class="fa-solid fa-envelope fa-2x mb-2" style="color: #811412"></i>
+                <h2>{{ totalContacts }}</h2>
+                <p class="">Messages reçus</p>
+                <a href="{{ path('app_admin_contacts') }}" class="btn btn-sm text-white mt-2" style="background-color: #811412">Voir</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

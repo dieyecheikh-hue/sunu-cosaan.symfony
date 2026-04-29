@@ -1,0 +1,45 @@
+{% extends 'themes/base_admin.html.twig' %}
+
+{% block main %}
+
+<div style="background-color: #811412" class="text-white py-4 text-center mb-4">
+        <h1 class="display-5" style="font-family: Georgia, serif;">Mon profil</h1>
+    </div>
+<div class="p-4">
+    
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+
+        <div class="mb-3">
+            <label>Prénom</label>
+            <div class="text-danger">{{ form_errors(form.firstName) }}</div>
+            {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3">
+            <label>Nom</label>
+            <div class="text-danger">{{ form_errors(form.lastName) }}</div>
+            {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <div class="text-danger">{{ form_errors(form.email) }}</div>
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="mb-3">
+            <label>Mot de passe</label>
+            <div class="text-danger">{{ form_errors(form.password) }}</div>
+            {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <button style="background-color: #811412" type="submit" class="btn text-white w-100 shadow">Enregistrer</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}

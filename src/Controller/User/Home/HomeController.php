@@ -23,16 +23,8 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/user/show/{slug}', name: 'app_user_show_show', methods: ['GET'])]
-    public function show(string $slug, PostRepository $postRepository): Response
+    public function show(string $slug): Response
     {
-        $post = $postRepository->findOneBy(['slug' => $slug, 'isPublished' => true]);
-
-        if (!$post) {
-            throw $this->createNotFoundException('Article introuvable.');
-        }
-
-        return $this->render('pages/user/show/show.html.twig', [
-            'post' => $post,
-        ]);
+        return $this->redirectToRoute('app_visitor_blog_show', ['slug' => $slug]);
     }
 }

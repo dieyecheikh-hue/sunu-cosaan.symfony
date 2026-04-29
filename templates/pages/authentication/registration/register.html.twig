@@ -17,6 +17,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/images/site.webmanifest">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -58,16 +62,20 @@
 
             <div class="mb-3">
                 <label for="registration_form_password_first">Mot de passe</label>
-                {{ form_widget(registrationForm.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Minimum 8 caractères.'}}) }}
+                {{ form_widget(registrationForm.password.first, {'attr': {'class': 'form-control', 'placeholder': 'Minimum 12 caractères.'}}) }}
             </div>
 
             <div class="mb-3">
                 <label for="registration_form_password_second">Confirmation du mot de passe</label>
-                {{ form_widget(registrationForm.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Minimum 8 caractères.'}}) }}
+                {{ form_widget(registrationForm.password.second, {'attr': {'class': 'form-control', 'placeholder': 'Minimum 12 caractères.'}}) }}
             </div>
-
+               
+            <p class="text-center my-3">
+                <a href="{{path('app_forgot_password_request')}}">Mot de passe oublié ?</a>
+            </p>
+            
             <div>
-                <input type="submit" class="btn btn-primary w-100 shadow my-3" value="S'inscrire">
+                <input style="background-color: #811412" type="submit" class="btn btn-primary w-100 shadow my-3" value="S'inscrire">
             </div>
 
             {{ form_end(registrationForm) }}

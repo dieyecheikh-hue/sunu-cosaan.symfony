@@ -1,0 +1,40 @@
+{% extends 'themes/base_admin.html.twig' %}
+
+{% block main %}
+<div style="background-color: #811412" class="text-white py-4 text-center">
+    <h1 class="display-5" style="font-family: Georgia, serif;">Messages reçus</h1>
+</div>
+
+<div class="p-4">
+    {% if contacts is empty %}
+        <p class="text-center">Aucun message reçu pour le moment.</p>
+    {% else %}
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead style="background-color: #811412" class="text-white">
+                <tr>
+                    <th>#</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.firstName }}</td>
+                    <td>{{ contact.lastName }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td><a class="btn text-white my-4" style="background-color: #811412" href="{{ path('app_admin_showmess', {id: contact.id}) }}">Voir</a></td>
+                    <td>{{ contact.createdAt ? contact.createdAt|date('d/m/Y H:i') : '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

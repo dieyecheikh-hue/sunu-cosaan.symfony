@@ -48,20 +48,26 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{path("app_visitor_aboutus")}}">A propos de nous</a>
+                        <a class="nav-link active text-white" href="{{path("app_visitor_aboutus")}}">A propos de nous</a>
                     </li>
 
+
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" href="{{ path('app_admin_profile') }}">Mon profil</a>
+                  </li>  
+
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{path("app_visitor_blog_index")}}">Blog</a>
+                        <a class="nav-link active text-white" href="{{path("app_visitor_blog_index")}}">Blog</a>
                     </li>
 
-                    {% if app.user %}
+
+
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ path('app_user_suggestion_index') }}">
-                        Vos suggestions
+                        <a class="nav-link active text-white" href="{{ path('app_contact') }}">
+                        Contactez-moi
                         </a>
                     </li>
-                    {% endif %}
+                  
                     
                 </ul>
 
@@ -80,19 +86,15 @@
                     </li> 
                 {% endif %}
             
-                      {% if app.user %}
-                        <li class="nav-item">
-                           <a class="nav-link text-white" href="{{path("app_logout")}}">Déconnexion</a>
-                         </li> 
-                      {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{path("app_login")}}">Se connecter</a>
-                        </li>
-                    
+                     
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{path("app_register")}}">S'inscrire</a>
-                    </li>
-                    {% endif %}
+                        <a class="nav-link text-white" href="{{path("app_logout")}}">Déconnexion</a>
+                     </li> 
+                     
+        
+                   
+                
+                     
 
                
    
